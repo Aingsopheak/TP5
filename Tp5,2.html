@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UtF-8">
+    <meta htp-equiv="X-Ua-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Guessing </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="app1.css">
+</head> 
+<body>
+    <div class="container">
+        <div class="content">
+        <div class="icon">🤨</div>
+    <h1>I Know Your Gender</h1>
+            <input type="text" id="name" required placeholder="Tell Me Your Name">
+    <button onclick="getMeAnActivity()">Guess</button>
+                <div class="loading" id="loading-text" hidden>Loading...</div>
+            <div class="result-box">
+                
+            </div>
+       </div>
+    </div>
+    <script>
+        const loadingTextEle = document.getElementById("loading-text");
+        const activityTypeEle = document.getElementById("activity-type");
+        function getMeAnActivity(){
+            loadingTextEle.hidden = false;
+            let name = document.querySelector("#name").value;
+            let url = "https://api.genderize.io?name="+name; 
+            document.querySelector(".result-box").hidden = true;
+            fetch(url).then(async (res) =>{
+                let data = await res.json();
+                loadingTextEle.hidden = true;
+               
+               const tmp =`
+               <div class="title" id="activity-name">${data.name}</div>
+                        <div class="icon1"> ${data.gender}</div>
+                        <div class="icon2">${data.probability * 100}%</div>                
+               `
+               document.querySelector(".result-box").innerHTML = tmp
+               document.querySelector(".result-box").hidden = false;
+            });
+        }
+    </script>
+</body>
+</html>>

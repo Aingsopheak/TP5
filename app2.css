@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Hanuman:wght@300;400;700&family=Julee&family=Koulen&family=Roboto+Condensed:wght@400;700&family=Roboto+Mono&family=Roboto+Slab&family=Roboto:wght@300;400;700&family=Rubik:wght@500&family=Shantell+Sans:wght@400;500;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+}
+.content{
+    width: 40%;
+    height: 80%;
+    background-color: #fff;
+    margin:10px  auto;
+    text-align: center;
+    padding-top: 10px;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.26);
+}
+.content .icon{
+    font-size: 80px;
+}
+.content h1{
+    font-size: 50px;
+    font-family: 'Julee', cursive;
+}
+.content button{
+    font-size: 15px;
+    color: #fff;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #0081C9;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Julee', cursive;
+    cursor: pointer;
+}
+.display-padding{
+    padding-top: 5px;
+}
+.display{
+    border-radius: 8px;
+    border: 3px solid gainsboro;
+    background-color: whitesmoke;
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.display .country{
+    font-weight: bold;
+}
+.display .percentage{
+    font-weight: bold;
+    color: orangered;
+}
+.loading{
+    padding-top: 100px;
+    width: 70%;
+    height: 43%;
+    background-color: #E9E8E8;
+    margin: 30px auto;
+    border-radius: 5px;
+    border: 1px solid #B2B2B2;
+    font-family: 'Roboto', sans-serif;
+}

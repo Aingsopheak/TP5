@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UtF-8">
+    <meta htp-equiv="X-Ua-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Nationality Guessing </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="app2.css">
+</head> 
+<body>
+    <div class="container">
+        <div class="content">
+        <div class="icon">🌏</div>
+    <h1>I Know Your Home</h1>
+            <input type="text" id="name" required placeholder="Tell Me First Your Name">
+    <button onclick="getMeAnActivity()">Guess</button>
+                <div class="loading" id="loading-text" hidden>Loading...</div>
+            <div class="result-box">
+                
+            </div>
+       </div>
+    </div>
+    <script>
+        const loadingTextEle = document.getElementById("loading-text");
+        function getMeAnActivity(){
+            
+            let name = document.querySelector("#name").value;
+            let url = "https://api.nationalize.io?name="+name; 
+            document.querySelector(".result-box").hidden = true;
+            fetch(url).then(async (res) =>{
+                let data = await res.json();
+                loadingTextEle.hidden = true;
+                let tmp ="";
+                data.country.forEach(item=>{
+                    tmp+=
+                    `
+                    <div class="display-padding"></div>
+                    <div class="display">
+                        <div class="country">${item.country_id}</div>
+                        <div class="percentage">${Number(item.probability*100).toFixed(2)}%</div>
+                    </div>
+                    `
+                })
+               document.querySelector(".result-box").innerHTML = tmp
+               document.querySelector(".result-box").hidden = false;
+            });
+        }
+    </script>
+</body>
+</html>
